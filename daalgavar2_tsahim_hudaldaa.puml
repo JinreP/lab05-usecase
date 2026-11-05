@@ -1,0 +1,25 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+left to right direction
+actor "Худалдан авагч" as Buyer
+actor "Админ" as Admin
+actor "Төлбөрийн систем" as Pay <<систем>>
+rectangle "Цахим худалдааны систем" {
+  usecase "Захиалгын явц хянах" as UC4
+  usecase "Захиалга өгөх" as UC1
+  usecase "Бараа буцаах" as UC5
+  usecase "Төлбөр төлөх" as UC2
+  usecase "Купон ашиглах" as UC3
+  usecase "Бараа бүртгэх" as UC6
+  usecase "Захиалга шийдвэрлэх" as UC7
+}
+Buyer -- UC4
+Buyer -- UC1
+Buyer -- UC5
+UC1 ..> UC2 : <<include>>
+UC2 <.. UC3 : <<extend>>
+UC2 -- Pay
+UC6 -- Admin
+UC7 -- Admin
+@enduml

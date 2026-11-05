@@ -1,0 +1,22 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+left to right direction
+actor Оюутан
+actor Багш
+rectangle "Оюутны удирдлагын систем" {
+  usecase "Хичээл сонгох" as UC1
+  usecase "Дүн харах" as UC3
+  usecase "Дүнд гомдол гаргах" as UC6
+  usecase "Хуваарь харах" as UC2
+  usecase "Дүн оруулах" as UC4
+  usecase "Ирц бүртгэх" as UC5
+}
+Оюутан -- UC1
+Оюутан -- UC3
+Оюутан -- UC2
+UC2 -- Багш
+UC4 -- Багш
+UC5 -- Багш
+UC3 <.. UC6 : <<extend>>
+@enduml
